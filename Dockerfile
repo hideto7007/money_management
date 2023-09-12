@@ -58,15 +58,16 @@ RUN npm install -g @vue/cli
 
 # 各プロジェクトはdocker構築後に作成する
 # Djangoプロジェクトの作成
-# WORKDIR /money
-# RUN django-admin startproject server
+WORKDIR /money
+RUN django-admin startproject server
 
 # # Vue.jsアプリケーションの作成
 # アプリケーション設定の場合はコンテナ作成後に作成する
-# RUN vue create client .
+RUN vue create client .
 
 # ポートを公開
 EXPOSE 8000
+EXPOSE 5173
 
 # コンテナを実行
-CMD ["bin/bash"]
+CMD ["bash", "-c", "python3 /money/server/manage.py runserver 0.0.0.0:8000 & cd /money/client && npm run dev"]
