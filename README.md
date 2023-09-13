@@ -20,3 +20,6 @@ npm install quasar @quasar/extras
 npm install -D @quasar/vite-plugin sass@1.32.13
 
 ```
+
+- UIフレームワーク<br/>
+https://quasar.dev/components
